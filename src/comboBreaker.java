@@ -11,14 +11,20 @@ public class comboBreaker {
 
         char[] moves = new char[length];
 
-        for (int i=0; i<length; i++){
-            int counter =0;
-//            if (input.charAt(i)==' ')
-//                i++;
-            moves[counter]=input.charAt(i);
-            counter++;
-            System.out.println(input.charAt(i));
-        }
+        input.getChars(0, input.length(), moves,0); // (Start element i string, slut index i string. hvilket array, hvor i arrayet)
+
+        for (int i= 0; i<moves.length; i++)
+            System.out.println(moves[i]);
+
+//        for (int i=0; i<input.length(); i++){
+//            int counter =0;
+//            if (input.charAt(i) != 32) {
+//                moves[counter] = input.charAt(i);
+//                counter++;
+//                System.out.println(moves[counter]);
+//            }
+//
+//        }
 
     }
 
