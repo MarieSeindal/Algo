@@ -5,33 +5,48 @@ public class comboBreaker {
 
     public static void main(String[] args) {
 
+// Tag input og omform det til et array.
         Scanner sc = new Scanner(System.in);
 
         String length = sc.nextLine();
         String input = sc.nextLine();
 
         int len = Integer.parseInt(length);
-        System.out.println(len);
 
-        String[] moves = new String[3];
+        char[] moves = new char[len];
 
-//        System.out.println(length);
-//        System.out.println(input);
+        input = input.replaceAll("\\s", "");
 
-        System.out.println(moves[0]);
-        System.out.println(moves[1]);
-        System.out.println(moves[2]);
+        for (int i = 0; i < input.length(); i++) {
+            moves[i] = input.charAt(i);
+            System.out.println(moves[i]);
+        }
+// Logikken
+        for (int i=0; i<len; i++)
+        combo(moves,3);
 
-
-//        for (int i= 0; i<moves.length; i++)
-//            System.out.println(moves[i]);
     }
 
-    public boolean combo(String a){
+    public static boolean combo(char[] moves, int index){
+
+        for (int k=0 ; k<4; k++) { // finder ens bogstaver
+            if (moves[index] == moves[index+1]) // tjekker 1 med 2, 2 med 3 og 3 med 4.
+                return false;
+
+            else if (moves[index] == moves[index+2] && index < 2) // Tjekker 1 me 3 og 2 med 4
+                return false;
+
+            else if (moves[index] == moves[index+3] && index == 0) // tjekker 1 med 4
+                return false;
+
+            else
+                index++;
+        }
+
         return true;
     }
 
-    public char counter(char a){
+    public static char counter(char a){
         if (a == 'C')
             return 'M';
         else if (a=='L')
