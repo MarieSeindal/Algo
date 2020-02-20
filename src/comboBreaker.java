@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
@@ -23,7 +24,9 @@ public class comboBreaker {
         }
 // Logikken
         for (int i=0; i<len; i++)
-        combo(moves,3);
+        if (combo(moves,i))
+            System.out.print("F");
+        else System.out.print(counter(moves[i]));
 
     }
 
