@@ -7,10 +7,16 @@ public class comboBreaker {
 
         Scanner sc = new Scanner(System.in);
 
-        int length = sc.nextInt();
-        String input = sc.next();
+        String length = sc.nextLine();
+        String input = sc.nextLine();
 
-        String[] moves = new String[length];
+        int len = Integer.parseInt(length);
+        System.out.println(len);
+
+        String[] moves = new String[3];
+
+//        System.out.println(length);
+//        System.out.println(input);
 
         System.out.println(moves[0]);
         System.out.println(moves[1]);

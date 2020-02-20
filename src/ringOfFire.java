@@ -22,10 +22,18 @@ public class ringOfFire {
     }
     public static int dead(int c, int n, int k, int[] elever){
         int counter = c;
-        for (int i=0; i<n-k; i++)
+        for (int i=0; i<n-k; i++) {
+            if (elever.length < c){
+
+            }else{
+
+            }
+            counter++;
+        }
 
 
 
+        return 0;
 
     }
 
