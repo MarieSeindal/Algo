@@ -24,22 +24,26 @@ public class comboBreaker {
         }
 // Logikken
         for (int i=0; i<len; i++)
-        if (combo(moves,i))
+            if (combo(moves,i)) {
             System.out.print("F");
-        else System.out.print(counter(moves[i]));
+            i+=3; //Hvis den laver en combo, så skal den ikke kigge på 4 næste
+            }
+        else
+            System.out.print(counter(moves[i]));
 
     }
 
     public static boolean combo(char[] moves, int index){
+        int startingIndex=index;
 
         for (int k=0 ; k<4; k++) { // finder ens bogstaver
             if (moves[index] == moves[index+1]) // tjekker 1 med 2, 2 med 3 og 3 med 4.
                 return false;
 
-            else if (moves[index] == moves[index+2] && index < 2) // Tjekker 1 me 3 og 2 med 4
+            else if (moves[index] == moves[index+2] && index <= startingIndex+1) // Tjekker 1 me 3 og 2 med 4
                 return false;
 
-            else if (moves[index] == moves[index+3] && index == 0) // tjekker 1 med 4
+            else if (moves[index] == moves[index+3] && index == startingIndex) // tjekker 1 med 4
                 return false;
 
             else
@@ -60,10 +64,5 @@ public class comboBreaker {
             return 'S';
 
     }
-
-
-
-
-
 
 }
