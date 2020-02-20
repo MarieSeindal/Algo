@@ -20,7 +20,6 @@ public class comboBreaker {
 
         for (int i = 0; i < input.length(); i++) {
             moves[i] = input.charAt(i);
-//            System.out.println(moves[i]);
         }
 // Logikken
 
@@ -43,7 +42,6 @@ public class comboBreaker {
         int startingIndex=index;
 
         for (int k=0 ; k<4; k++) { // finder ens bogstaver
-//            System.out.println(index +"  |  " + startingIndex);
             if (index <= startingIndex+2 && moves[index] == moves[index+1]) // tjekker 1 med 2, 2 med 3 og 3 med 4.
                 return false;
 
