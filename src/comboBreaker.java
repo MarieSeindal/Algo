@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class comboBreaker {
 
     public static void main(String[] args) {
@@ -9,23 +10,15 @@ public class comboBreaker {
         int length = sc.nextInt();
         String input = sc.next();
 
-        char[] moves = new char[length];
+        String[] moves = new String[length];
 
-        input.getChars(0, input.length(), moves,0); // (Start element i string, slut index i string. hvilket array, hvor i arrayet)
+        System.out.println(moves[0]);
+        System.out.println(moves[1]);
+        System.out.println(moves[2]);
 
-        for (int i= 0; i<moves.length; i++)
-            System.out.println(moves[i]);
 
-//        for (int i=0; i<input.length(); i++){
-//            int counter =0;
-//            if (input.charAt(i) != 32) {
-//                moves[counter] = input.charAt(i);
-//                counter++;
-//                System.out.println(moves[counter]);
-//            }
-//
-//        }
-
+//        for (int i= 0; i<moves.length; i++)
+//            System.out.println(moves[i]);
     }
 
     public boolean combo(String a){
