@@ -16,25 +16,21 @@ public class ringOfFire {
         int[] elever = new int[n];
         for (int i=0; i<n; i++ ) {
             elever[i] = i+1;
-            System.out.println(elever[i]);
+//            System.out.println(elever[i]);
         }
 
     }
-    public static int dead(int c, int n, int k, int[] elever){
-        int counter = c;
+    public static void dead(int c, int n, int k, int[] elever){ //Ændre de elever i arrayet, som er døde
         for (int i=0; i<n-k; i++) {
-            if (elever[i] == 0){
+
+            if (elever[i] == elever.length-1){ //Hvis tællingen går ud over arrayets kant
+
 
             }else{
                 
             }
-            counter++;
         }
-
-
-
-        return 0;
-
+        
     }
 
 
