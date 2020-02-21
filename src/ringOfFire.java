@@ -8,9 +8,9 @@ public class ringOfFire {
         Scanner sc = new Scanner(System.in);
         int n,c,k;
 
-        n = sc.nextInt();
-        c = sc.nextInt();
-        k = sc.nextInt();
+        n = sc.nextInt(); // Total student
+        c = sc.nextInt(); // Kill count
+        k = sc.nextInt(); // Number of survivors
 
         //Lav array af integers, aka elever
         int[] elever = new int[n];
@@ -21,9 +21,15 @@ public class ringOfFire {
 
     }
     public static void dead(int c, int n, int k, int[] elever){ //Ændre de elever i arrayet, som er døde
-        for (int i=0; i<n-k; i++) {
+
+        int count = c;
+
+        for (int i=0; i<n-k; i++) { //loop gennem total student array
+
+            // Vi har en tæller, som tæller ned
 
             if (elever[i] == elever.length-1){ //Hvis tællingen går ud over arrayets kant
+
 
 
             }else{
