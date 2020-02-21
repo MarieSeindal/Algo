@@ -28,26 +28,25 @@ public class ringOfFire {
     public static void dead(int c, int n, int k, boolean[] students){ //Ændre de elever i arrayet, som er døde
 
         int count = c;
+        int alive = n;
 
-        for (int i=0; i<=n-k; i++) { //loop gennem total student array
+        for (int i=0; alive<=k ; i++) { //loop through total student array
 
             // Vi har en tæller, som tæller ned
 
-            if (i == students.length-1){ //Hvis tællingen går ud over arrayets kant
+            if (i == students.length-1){ //if total student counting
                 i = 0;
                 System.out.println("Ring reset");
-
             }
 
-            if (!students[i]) {
-
+            if (!students[i]) { //If student is dead, skip him in counting.
                 continue;
 
-
-            } else if (count == 1) {
+            } else if (count == 1) {// if student dies, kill him, count reset, alive down.
                 students[i] = false;
                 count = c;
-                System.out.println("Die " + students[i]);
+                alive--;
+                System.out.println("Die " + i);
                 continue;
 
             }
@@ -55,9 +54,6 @@ public class ringOfFire {
             count--;
         }
 
-
-        
     }
-
 
 }
