@@ -20,38 +20,74 @@ public class ringOfFire {
         }
 
         dead(c,n,k,students);
+
+        int aliveCount=0;
+
         for (int i=0; i<n; i++ ) {
-            System.out.println(students[i]);
+            if (students[i]) {
+                System.out.print(i + 1);
+                aliveCount++;
+                if (aliveCount!=k)
+                    System.out.print(" ");
+            }
         }
+    }
+
+    public static void reset(){
 
     }
+
     public static void dead(int c, int n, int k, boolean[] students){ //Ændre de elever i arrayet, som er døde
 
         int count = c;
-        int alive = n;
+        int alive = n; // starts at total student, and goes down to k
+        int index = 0;
 
-        for (int i=0; alive<=k ; i++) { //loop through total student array
+        while (alive > k){
+//If student is dead, skip him in counting, and index++.
+            if (!students[index]) {
+//                System.out.println("Skips cause dead "+ index);
 
-            // Vi har en tæller, som tæller ned
+                if (index == students.length-1){ //Reset index in ring
+                    index = 0;
+//                    System.out.println("Ring reset");
+                }
+                else {
+                    index++;
+                }
 
-            if (i == students.length-1){ //if total student counting
-                i = 0;
-                System.out.println("Ring reset");
+                continue;
             }
 
-            if (!students[i]) { //If student is dead, skip him in counting.
-                continue;
-
-            } else if (count == 1) {// if student dies, kill him, count reset, alive down.
-                students[i] = false;
+            else if (count == 1) { // if student dies, kill him, count reset, alive down, index++.
+                students[index] = false;
                 count = c;
                 alive--;
-                System.out.println("Die " + i);
-                continue;
+//                System.out.println("Die number " + index);
 
+                if (index == students.length-1){ //Reset index in ring
+                    index = 0;
+//                    System.out.println("Ring reset");
+                }
+                else
+                    index++;
+
+                continue;
+            }
+            else {
+                count--;
+
+                if (index == students.length-1){ //Reset index in ring
+                    index = 0;
+//                    System.out.println("Ring reset");
+                }
+                else {
+                    index++;
+                }
             }
 
-            count--;
+
+
         }
 
     }
