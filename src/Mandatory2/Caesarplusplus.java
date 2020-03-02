@@ -48,19 +48,19 @@ public class Caesarplusplus {
 
             stack.push(input.charAt(i));
 
-
-
-
-
-
-
+            if (input.charAt())
 
 
         }
 
-        // metode for at printe stacken // todo
 
 
+    }
+    // metode for at printe stacken // todo
+    public static void stackPrint (char [] stack) {
+        for (int p = 0 ; i < n; i++) {
+
+        }
     }
 
 
