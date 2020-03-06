@@ -32,9 +32,7 @@ public class Caesarplusplus {
                 System.out.println("Not an int");
             }
 
-
             if (input.charAt(i) == 94) { //Tjekker for pop  (^)
-
 
                 if (yesInt == true){
                     System.out.println("Move numbers: " + a);
@@ -50,10 +48,7 @@ public class Caesarplusplus {
 
             if (input.charAt())
 
-
         }
-
-
 
     }
     // metode for at printe stacken // todo
