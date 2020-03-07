@@ -9,7 +9,7 @@ public class Caesarplusplus {
 
 // input til output
         Scanner sc = new Scanner(System.in);
-        Stack<String> stack = new Stack<>();
+        Stack<Character> stack = new Stack<Character>();
 
         // tager den første integer og læser den
         String length = sc.nextLine();
@@ -17,15 +17,15 @@ public class Caesarplusplus {
 
         // tager resten og læser det
         String input = sc.nextLine();
-        String[] split = input.split("\\s");
 
-        //input = input.replaceAll("\\s", "");
+
+        input = input.replaceAll("\\s", "");
 
         // Pushing every character of the string into the stack, maybe not needed :3
-//        char[] ch = input.toCharArray(); todo
-        for (int i = 0; i < split.length; i++) {
-            stack.push(split[i]);
-        }
+        char[] ch = input.toCharArray();
+//        for (int i = 0; i < input.length(); i++) {
+//            stack.push(ch[i]);
+//        }
 
         //Creating a alphabet array
 //        char[] alpha = new char[26];
@@ -35,34 +35,31 @@ public class Caesarplusplus {
 
 
         // genere stacken
+        int temp = 0;
+        int tot = 0;
+
         for (int i=0; i<len; i++){
-
-            boolean yesInt = true;
-            int a;
-
-            try {
-//                a = Character.getNumericValue(input.charAt(i));
-                a = Integer.parseInt(split[i]);
-            }catch (Exception e){
-                System.out.println("Not an int"); //todo
-                yesInt = false;
-            }
-
-            if (input.charAt(i) == 94) { //Tjekker for pop  (^)
-
-                if (yesInt == true){
-                    System.out.println("Move numbers: " + a); //todo
+            if (Character.isLetter(ch[i])) {
+                if (Character.isDigit(ch[i-1])){
+                    tot = tot + temp;
+                    temp = 0;
                 }
+            } else if (Character.isDigit(ch[i])) {
+                temp = temp * 10 + ch[i];
+                // if previous char was an int multiply previous int by 10 and add current int
+            } else { // pop  (^)
+
 
                 char pop = stack.pop(); // todo
                 System.out.println("Pop: " +  pop); //todo
 
+
                 continue;
             }
 
-            stack.push(input.charAt(i));
+//            stack.push(ch[i]);
 
-            if (input.charAt(i))
+            if (ch[i])
 
         }
 
