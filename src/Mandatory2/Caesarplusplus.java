@@ -9,7 +9,7 @@ public class Caesarplusplus {
 
 // input til output
         Scanner sc = new Scanner(System.in);
-        Stack<Character> stack = new Stack<Character>();
+        Stack<String> stack = new Stack<>();
 
         // tager den første integer og læser den
         String length = sc.nextLine();
@@ -17,38 +17,41 @@ public class Caesarplusplus {
 
         // tager resten og læser det
         String input = sc.nextLine();
-        input = input.replaceAll("\\s", "");
+        String[] split = input.split("\\s");
 
-        // Pushing every character of the string into the stack
-        char[] ch = input.toCharArray();
-        for (int i = 0; i < input.length(); i++) {
-            stack.push(ch[i]);
+        //input = input.replaceAll("\\s", "");
+
+        // Pushing every character of the string into the stack, maybe not needed :3
+//        char[] ch = input.toCharArray(); todo
+        for (int i = 0; i < split.length; i++) {
+            stack.push(split[i]);
         }
 
         //Creating a alphabet array
-        char[] alpha = new char[26];
-        for(int i = 0; i < 26; i++){
-            alpha[i] = (char)(65 + i);
-        }
+//        char[] alpha = new char[26];
+//        for(int j = 0; j < 26; j++){
+//            alpha[j] = (char)(65 + j);
+//        }
 
 
         // genere stacken
         for (int i=0; i<len; i++){
 
-            boolean yesInt = false;
+            boolean yesInt = true;
             int a;
 
             try {
-                a = Character.getNumericValue(input.charAt(i));
-                yesInt = true;
+//                a = Character.getNumericValue(input.charAt(i));
+                a = Integer.parseInt(split[i]);
             }catch (Exception e){
-                System.out.println("Not an int");
+                System.out.println("Not an int"); //todo
+                yesInt = false;
             }
 
             if (input.charAt(i) == 94) { //Tjekker for pop  (^)
 
                 if (yesInt == true){
-                    System.out.println("Move numbers: " + a);
+                    System.out.println("Move numbers: " + a); //todo
                 }
 
                 char pop = stack.pop(); // todo
@@ -59,14 +62,14 @@ public class Caesarplusplus {
 
             stack.push(input.charAt(i));
 
-            if (input.charAt())
+            if (input.charAt(i))
 
         }
 
     }
     // metode for at printe stacken // todo
-    public static void stackPrint (char [] stack) {
-        for (int p = 0 ; i < ; i++) {
+    public static void stackPrint (Stack<Character>) {
+        for (int p = 0 ; p < ; p++) {
 
         }
     }
