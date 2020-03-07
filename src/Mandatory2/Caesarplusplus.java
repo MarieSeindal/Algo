@@ -19,17 +19,17 @@ public class Caesarplusplus {
         String input = sc.nextLine();
         input = input.replaceAll("\\s", "");
 
-        // Pushing every character of the string into the stack
-        char[] ch = input.toCharArray();
-        for (int i = 0; i < input.length(); i++) {
-            stack.push(ch[i]);
-        }
-
-        //Creating a alphabet array
-        char[] alpha = new char[26];
-        for(int i = 0; i < 26; i++){
-            alpha[i] = (char)(65 + i);
-        }
+//        // Pushing every character of the string into the stack
+//        char[] ch = input.toCharArray();
+//        for (int i = 0; i < input.length(); i++) {
+//            stack.push(ch[i]);
+//        }
+//
+//        //Creating a alphabet array
+//        char[] alpha = new char[26];
+//        for(int i = 0; i < 26; i++){
+//            alpha[i] = (char)(65 + i);
+//        }
 
 
         // genere stacken
