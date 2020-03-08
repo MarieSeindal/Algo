@@ -23,44 +23,35 @@ public class Caesarplusplus {
 
         // Pushing every character of the string into the stack, maybe not needed :3
         char[] ch = input.toCharArray();
-//        for (int i = 0; i < input.length(); i++) {
-//            stack.push(ch[i]);
-//        }
-
-        //Creating a alphabet array
-//        char[] alpha = new char[26];
-//        for(int j = 0; j < 26; j++){
-//            alpha[j] = (char)(65 + j);
-//        }
-
 
         // genere stacken
         int temp = 0;
         int tot = 0;
+        int cipher;
 
         for (int i = 0; i < ch.length; i++) {
             if (Character.isLetter(ch[i])) {
-                if (Character.isDigit(ch[i - 1]) && i != 1) {
-                    tot = tot + temp;
-                    temp = 0;
-                }
                 ch[i] = (char) ((ch[i] + tot - 65) % 26 + 65);
+
             } else if (Character.isDigit(ch[i])) {
-                temp = temp * 10 + ch[i];
+                cipher = Integer.parseInt(String.valueOf(ch[i]));
+
+                if (i > 1 && Character.isDigit(ch[i - 1])) {
+                    temp = temp * 10 + cipher;
+                }
+                temp = temp + cipher;
+                tot = tot + temp;
+                temp = 0;
                 // if previous char was an int multiply previous int by 10 and add current int
             } else { // pop  (^)
 
 
-                char pop = myStack.pop(); // todo
-                System.out.println("Pop: " + pop); //todo
-
+                char pop = myStack.pop();
 
                 continue;
             }
 
             myStack.push(ch[i]);
-
-//            if (ch[i])
 
         }
         Object[] blyat = myStack.toArray();
