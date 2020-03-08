@@ -32,26 +32,47 @@ public class Caesarplusplus {
         for (int i = 0; i < ch.length; i++) {
             if (Character.isLetter(ch[i])) {
                 ch[i] = (char) ((ch[i] + tot - 65) % 26 + 65);
+                tot = tot + temp;
+                temp = 0;
+
+//                if (i> 1 && Character.isDigit(ch[i-1])){
+//                    myStack.pop();
+//                }
 
             } else if (Character.isDigit(ch[i])) {
                 cipher = Integer.parseInt(String.valueOf(ch[i]));
 
-                if (i > 1 && Character.isDigit(ch[i - 1])) {
+                if (Character.isDigit(ch[i - 1]) && i > 1) {
                     temp = temp * 10 + cipher;
+                    cipher = 0;
+                    //myStack.pop();
                 }
                 temp = temp + cipher;
-                tot = tot + temp;
-                temp = 0;
                 // if previous char was an int multiply previous int by 10 and add current int
-            } else { // pop  (^)
+
+//
+
+            }
+
+            else { // pop  (^)
+
 
 
                 char pop = myStack.pop();
+                //System.out.println("Pop: " + pop);
+                tot = tot + temp;
+                temp = 0;
 
                 continue;
             }
 
-            myStack.push(ch[i]);
+            char push = myStack.push(ch[i]);
+            //System.out.println("Push: " + push);
+            if (i> 1 && Character.isDigit(ch[i-1])){
+                myStack.pop();
+            }
+
+
 
         }
         Object[] blyat = myStack.toArray();
