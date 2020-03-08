@@ -9,7 +9,7 @@ public class Caesarplusplus {
 
 // input til output
         Scanner sc = new Scanner(System.in);
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> myStack = new Stack<Character>();
 
         // tager den første integer og læser den
         String length = sc.nextLine();
@@ -38,38 +38,37 @@ public class Caesarplusplus {
         int temp = 0;
         int tot = 0;
 
-        for (int i=0; i<len; i++){
+        for (int i = 0; i < ch.length; i++) {
             if (Character.isLetter(ch[i])) {
-                if (Character.isDigit(ch[i-1])){
+                if (Character.isDigit(ch[i - 1]) && i != 1) {
                     tot = tot + temp;
                     temp = 0;
                 }
+                ch[i] = (char) ((ch[i] + tot - 65) % 26 + 65);
             } else if (Character.isDigit(ch[i])) {
                 temp = temp * 10 + ch[i];
                 // if previous char was an int multiply previous int by 10 and add current int
             } else { // pop  (^)
 
 
-                char pop = stack.pop(); // todo
-                System.out.println("Pop: " +  pop); //todo
+                char pop = myStack.pop(); // todo
+                System.out.println("Pop: " + pop); //todo
 
 
                 continue;
             }
 
-//            stack.push(ch[i]);
+            myStack.push(ch[i]);
 
-            if (ch[i])
-
-        }
-
-    }
-    // metode for at printe stacken // todo
-    public static void stackPrint (Stack<Character>) {
-        for (int p = 0 ; p < ; p++) {
+//            if (ch[i])
 
         }
+        Object[] blyat = myStack.toArray();
+        for (int p = 0; p < blyat.length; p++) {
+            System.out.print(blyat[p]);
+            if (p != blyat.length - 1)
+                System.out.print(" ");
+        }
     }
-
 
 }
